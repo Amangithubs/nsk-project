@@ -1,4 +1,6 @@
 RAG Document Q&A System
+
+
 This project implements a Retrieval-Augmented Generation (RAG) system that allows users to upload documents (PDF, TXT, DOCX), process their content, and ask questions to get answers grounded in the document text. The system leverages various open-source libraries and models to build the RAG pipeline and provide a user-friendly interface.
 
 
@@ -15,10 +17,8 @@ User Interface: Gradio
 Environment: Google Colab (or a compatible Python environment)
 
 
-
-
-
 Setup Instructions
+
 To get this RAG system up and running, follow these steps:
 Environment: The code is developed and tested in Google Colab. You can run it directly in a Colab environment. Ensure you have access to a runtime with sufficient resources (CPU and RAM; a GPU is recommended for faster Ollama inference).
 Run Ollama Locally (Recommended for performance) or in Colab:
@@ -43,10 +43,10 @@ Process Document:
 
 In the Gradio interface, click "Upload Document" and select your PDF, TXT, or DOCX file.
 Click the "Process Document" button. Wait for the status to show "Document processed and ready!". Check the Colab output for any errors if it fails.
-Ask Questions:
-
-Once processing is complete, type your question about the document content into the "Ask a question about the Document" textbox.
+Ask Questions: Once processing is complete, type your question about the document content into the "Ask a question about the Document" textbox.
 Press Enter or click the submit button. The generated answer will appear in the "Answer" textbox.
+
+
 Features
 This RAG system provides the following features:
 Multi-format Document Support: Load and process documents in various formats, including PDF, TXT, and DOCX.
@@ -65,4 +65,5 @@ Ingestion: The document loader (using Langchain's PyPDFLoader, TextLoader, Docx2
 Chunking: A custom chunking function splits the document content into smaller, overlapping text chunks.
 Indexing: The system uses the sentence-transformers/multi-qa-mpnet-base-dot-v1 model to create a numerical vector (embedding) for each chunk and stores them in a FAISS vector database (VectorStore).
 Retrieval & Generation: When a question is asked, the system retrieves the most relevant chunks from the FAISS vector store based on the question's embedding. The top-ranked chunks and the original question are then passed to the Ollama LLM within a structured prompt (using Langchain Prompt Templates and Runnables), which generates the final, grounded answer.
+
 User Interaction: The Gradio web interface provides a user-friendly way to upload documents, trigger the processing steps, ask questions, and view the generated answers directly in a web browser or Colab output.
