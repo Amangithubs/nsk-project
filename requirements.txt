@@ -1,0 +1,13 @@
+langchain
+langchain-community
+langchain-ollama
+langchain-core (often installed with langchain)
+pypdf
+docx2txt
+faiss-cpu
+sentence-transformers
+ollama
+gradio
+numpy
+huggingface-hub (used for the InferenceClient, though SentenceTransformers is used for embeddings now)
+PyPDF2 (dependency for PyPDFLoader, but often good to list)
