@@ -59,11 +59,12 @@ Modular RAG Pipeline: Built using key components like Langchain for loading and 
 
 
 How It Works
-The application follows a standard Retrieval-Augmented Generation (RAG) pipeline. The user interacts with this pipeline through a Gradio web interface:
 
+The application follows a standard Retrieval-Augmented Generation (RAG) pipeline. The user interacts with this pipeline through a Gradio web interface:
 Ingestion: The document loader (using Langchain's PyPDFLoader, TextLoader, Docx2txtLoader) fetches content from your uploaded PDF, TXT, or DOCX file.
 Chunking: A custom chunking function splits the document content into smaller, overlapping text chunks.
 Indexing: The system uses the sentence-transformers/multi-qa-mpnet-base-dot-v1 model to create a numerical vector (embedding) for each chunk and stores them in a FAISS vector database (VectorStore).
 Retrieval & Generation: When a question is asked, the system retrieves the most relevant chunks from the FAISS vector store based on the question's embedding. The top-ranked chunks and the original question are then passed to the Ollama LLM within a structured prompt (using Langchain Prompt Templates and Runnables), which generates the final, grounded answer.
 
 User Interaction: The Gradio web interface provides a user-friendly way to upload documents, trigger the processing steps, ask questions, and view the generated answers directly in a web browser or Colab output.
+
